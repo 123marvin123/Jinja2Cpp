@@ -415,7 +415,7 @@ InternalValue Map::Filter(const InternalValue& baseVal, RenderContext& context)
 
     return ListAdapter::CreateAdapter(std::move(resultList));
 }
-Random::Random(FilterParams params) {}
+Random::Random(FilterParams) {}
 
 InternalValue Random::Filter(const InternalValue&, RenderContext&)
 {
@@ -458,7 +458,7 @@ InternalValue SequenceAccessor::Filter(const InternalValue& baseVal, RenderConte
 
     if (!isConverted)
         return result;
-    
+
     auto ProtectedValue = [&baseVal](InternalValue value) {
         if (baseVal.ShouldExtendLifetime())
             value.SetParentData(baseVal);
@@ -667,7 +667,7 @@ InternalValue Slice::Filter(const InternalValue& baseVal, RenderContext& context
             value.SetParentData(baseVal);
         return value;
     };
-    
+
     InternalValue sliceLengthValue = GetArgumentValue("slices", context);
     int64_t sliceLength = ConvertToInt(sliceLengthValue);
     InternalValue fillWith = GetArgumentValue("fill_with", context);
@@ -719,13 +719,13 @@ InternalValue Slice::Batch(const InternalValue& baseVal, RenderContext& context)
 
     InternalValueList resultList;
     resultList.reserve(linecount);
-    
+
     auto ProtectedValue = [&baseVal](InternalValue value) {
         if (baseVal.ShouldExtendLifetime())
             value.SetParentData(baseVal);
         return value;
     };
-    
+
     const auto remainder = elementsCount % linecount;
     const auto columns = elementsCount / linecount + (remainder > 0 ? 1 : 0);
     for (std::size_t line = 0, idx = 0; line < linecount; ++line)

@@ -124,7 +124,7 @@ struct PrettyPrinter : visitors::BaseVisitor<std::string>
     const RenderContext* m_context;
 };
 
-PrettyPrint::PrettyPrint(FilterParams params) {}
+PrettyPrint::PrettyPrint(FilterParams) {}
 
 InternalValue PrettyPrint::Filter(const InternalValue& baseVal, RenderContext& context)
 {
