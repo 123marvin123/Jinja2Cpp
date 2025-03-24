@@ -161,6 +161,7 @@ INSTANTIATE_TEST_SUITE_P(Length, FilterGenericTest, ::testing::Values(
                             InputOutputPair{"intValue | length", ""},
                             InputOutputPair{"intList | length", "10"},
                             InputOutputPair{"stringValue | list | length", "4"},
+                            InputOutputPair{"stringValue | length", "4"},
                             InputOutputPair{"reflectedIntVector | length", "10"}
                             ));
 

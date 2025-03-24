@@ -454,7 +454,7 @@ InternalValue SequenceAccessor::Filter(const InternalValue& baseVal, RenderConte
     InternalValue result;
 
     bool isConverted = false;
-    ListAdapter list = ConvertToList(baseVal, isConverted);
+    ListAdapter list = ConvertToList(baseVal, isConverted, false);
 
     if (!isConverted)
         return result;

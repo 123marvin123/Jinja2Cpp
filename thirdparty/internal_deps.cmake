@@ -69,8 +69,8 @@ if (JINJA2CPP_BUILD_TESTS)
 
     FetchContent_Declare(
         nlohmann_json
-        URL https://github.com/nlohmann/json/archive/8c391e04fe4195d8be862c97f38cfe10e2a3472e.tar.gz
-        URL_HASH SHA256=8ca375182e9557612f043eaa62dfc4224b41ddf07af704577666aadb7dd99a79
+        URL https://codeload.github.com/nlohmann/json/zip/11a835df85677002a8aadc5b4e945684c5b7f68b
+        URL_HASH SHA256=8320fab51a221259d50f47911c05b90eb07d8e13b2e9388fd56372a7be30e702
     )
     FetchContent_MakeAvailable(nlohmann_json)
 endif()
